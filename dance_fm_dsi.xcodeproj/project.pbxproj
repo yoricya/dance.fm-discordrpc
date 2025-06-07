@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E696A7072DF487DF0039B841 /* dance_fm_dsiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A7062DF487DF0039B841 /* dance_fm_dsiApp.swift */; };
+		E696A70B2DF487E10039B841 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E696A70A2DF487E10039B841 /* Assets.xcassets */; };
+		E696A70E2DF487E10039B841 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E696A70D2DF487E10039B841 /* Preview Assets.xcassets */; };
+		E696A7182DF497E30039B841 /* app.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A7172DF497E30039B841 /* app.swift */; };
+		E696A7262DF4AF530039B841 /* RichPresence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A71D2DF4AF530039B841 /* RichPresence.swift */; };
+		E696A7272DF4AF530039B841 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A71E2DF4AF530039B841 /* Enums.swift */; };
+		E696A7282DF4AF530039B841 /* JoinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A71F2DF4AF530039B841 /* JoinRequest.swift */; };
+		E696A7292DF4AF530039B841 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A7202DF4AF530039B841 /* Delegate.swift */; };
+		E696A72A2DF4AF530039B841 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A7212DF4AF530039B841 /* Register.swift */; };
+		E696A72B2DF4AF530039B841 /* SwordRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A7222DF4AF530039B841 /* SwordRPC.swift */; };
+		E696A72C2DF4AF530039B841 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A7232DF4AF530039B841 /* Events.swift */; };
+		E696A72D2DF4AF530039B841 /* RPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A7242DF4AF530039B841 /* RPC.swift */; };
+		E696A72E2DF4AF530039B841 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A7252DF4AF530039B841 /* Utils.swift */; };
+		E696A7322DF4B0340039B841 /* BlueSocketTestCommonLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = E696A7312DF4B0340039B841 /* BlueSocketTestCommonLibrary */; };
+		E696A7342DF4B0340039B841 /* Socket in Frameworks */ = {isa = PBXBuildFile; productRef = E696A7332DF4B0340039B841 /* Socket */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E696A7032DF487DF0039B841 /* dance_fm_dsi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dance_fm_dsi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E696A7062DF487DF0039B841 /* dance_fm_dsiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dance_fm_dsiApp.swift; sourceTree = "<group>"; };
+		E696A70A2DF487E10039B841 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E696A70D2DF487E10039B841 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E696A70F2DF487E10039B841 /* dance_fm_dsi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dance_fm_dsi.entitlements; sourceTree = "<group>"; };
+		E696A7172DF497E30039B841 /* app.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = app.swift; sourceTree = "<group>"; };
+		E696A71D2DF4AF530039B841 /* RichPresence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RichPresence.swift; sourceTree = "<group>"; };
+		E696A71E2DF4AF530039B841 /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		E696A71F2DF4AF530039B841 /* JoinRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinRequest.swift; sourceTree = "<group>"; };
+		E696A7202DF4AF530039B841 /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		E696A7212DF4AF530039B841 /* Register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		E696A7222DF4AF530039B841 /* SwordRPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwordRPC.swift; sourceTree = "<group>"; };
+		E696A7232DF4AF530039B841 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		E696A7242DF4AF530039B841 /* RPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPC.swift; sourceTree = "<group>"; };
+		E696A7252DF4AF530039B841 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E696A7002DF487DF0039B841 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E696A7322DF4B0340039B841 /* BlueSocketTestCommonLibrary in Frameworks */,
+				E696A7342DF4B0340039B841 /* Socket in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E696A6FA2DF487DF0039B841 = {
+			isa = PBXGroup;
+			children = (
+				E696A7052DF487DF0039B841 /* dance_fm_dsi */,
+				E696A7042DF487DF0039B841 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E696A7042DF487DF0039B841 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E696A7032DF487DF0039B841 /* dance_fm_dsi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E696A7052DF487DF0039B841 /* dance_fm_dsi */ = {
+			isa = PBXGroup;
+			children = (
+				E696A71B2DF4AF530039B841 /* ds_sw */,
+				E696A7062DF487DF0039B841 /* dance_fm_dsiApp.swift */,
+				E696A70A2DF487E10039B841 /* Assets.xcassets */,
+				E696A70F2DF487E10039B841 /* dance_fm_dsi.entitlements */,
+				E696A70C2DF487E10039B841 /* Preview Content */,
+				E696A7172DF497E30039B841 /* app.swift */,
+			);
+			path = dance_fm_dsi;
+			sourceTree = "<group>";
+		};
+		E696A70C2DF487E10039B841 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E696A70D2DF487E10039B841 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E696A71B2DF4AF530039B841 /* ds_sw */ = {
+			isa = PBXGroup;
+			children = (
+				E696A71C2DF4AF530039B841 /* Types */,
+				E696A7202DF4AF530039B841 /* Delegate.swift */,
+				E696A7212DF4AF530039B841 /* Register.swift */,
+				E696A7222DF4AF530039B841 /* SwordRPC.swift */,
+				E696A7232DF4AF530039B841 /* Events.swift */,
+				E696A7242DF4AF530039B841 /* RPC.swift */,
+				E696A7252DF4AF530039B841 /* Utils.swift */,
+			);
+			path = ds_sw;
+			sourceTree = "<group>";
+		};
+		E696A71C2DF4AF530039B841 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				E696A71D2DF4AF530039B841 /* RichPresence.swift */,
+				E696A71E2DF4AF530039B841 /* Enums.swift */,
+				E696A71F2DF4AF530039B841 /* JoinRequest.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E696A7022DF487DF0039B841 /* dance_fm_dsi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E696A7122DF487E10039B841 /* Build configuration list for PBXNativeTarget "dance_fm_dsi" */;
+			buildPhases = (
+				E696A6FF2DF487DF0039B841 /* Sources */,
+				E696A7002DF487DF0039B841 /* Frameworks */,
+				E696A7012DF487DF0039B841 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dance_fm_dsi;
+			packageProductDependencies = (
+				E696A7312DF4B0340039B841 /* BlueSocketTestCommonLibrary */,
+				E696A7332DF4B0340039B841 /* Socket */,
+			);
+			productName = dance_fm_dsi;
+			productReference = E696A7032DF487DF0039B841 /* dance_fm_dsi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E696A6FB2DF487DF0039B841 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					E696A7022DF487DF0039B841 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = E696A6FE2DF487DF0039B841 /* Build configuration list for PBXProject "dance_fm_dsi" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E696A6FA2DF487DF0039B841;
+			packageReferences = (
+				E696A7302DF4B0340039B841 /* XCRemoteSwiftPackageReference "BlueSocket" */,
+			);
+			productRefGroup = E696A7042DF487DF0039B841 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E696A7022DF487DF0039B841 /* dance_fm_dsi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E696A7012DF487DF0039B841 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E696A70E2DF487E10039B841 /* Preview Assets.xcassets in Resources */,
+				E696A70B2DF487E10039B841 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E696A6FF2DF487DF0039B841 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E696A7292DF4AF530039B841 /* Delegate.swift in Sources */,
+				E696A7072DF487DF0039B841 /* dance_fm_dsiApp.swift in Sources */,
+				E696A7182DF497E30039B841 /* app.swift in Sources */,
+				E696A7282DF4AF530039B841 /* JoinRequest.swift in Sources */,
+				E696A72A2DF4AF530039B841 /* Register.swift in Sources */,
+				E696A72B2DF4AF530039B841 /* SwordRPC.swift in Sources */,
+				E696A72C2DF4AF530039B841 /* Events.swift in Sources */,
+				E696A72E2DF4AF530039B841 /* Utils.swift in Sources */,
+				E696A7272DF4AF530039B841 /* Enums.swift in Sources */,
+				E696A7262DF4AF530039B841 /* RichPresence.swift in Sources */,
+				E696A72D2DF4AF530039B841 /* RPC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E696A7102DF487E10039B841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E696A7112DF487E10039B841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		E696A7132DF487E10039B841 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = dance_fm_dsi/dance_fm_dsi.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"dance_fm_dsi/Preview Content\"";
+				DEVELOPMENT_TEAM = NQN2RQM8FL;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.yoricya.swift.dance-fm-dsi.dance-fm-dsi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		E696A7142DF487E10039B841 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = dance_fm_dsi/dance_fm_dsi.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"dance_fm_dsi/Preview Content\"";
+				DEVELOPMENT_TEAM = NQN2RQM8FL;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "ru.yoricya.swift.dance-fm-dsi.dance-fm-dsi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E696A6FE2DF487DF0039B841 /* Build configuration list for PBXProject "dance_fm_dsi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E696A7102DF487E10039B841 /* Debug */,
+				E696A7112DF487E10039B841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E696A7122DF487E10039B841 /* Build configuration list for PBXNativeTarget "dance_fm_dsi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E696A7132DF487E10039B841 /* Debug */,
+				E696A7142DF487E10039B841 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E696A7302DF4B0340039B841 /* XCRemoteSwiftPackageReference "BlueSocket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/BlueSocket.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E696A7312DF4B0340039B841 /* BlueSocketTestCommonLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E696A7302DF4B0340039B841 /* XCRemoteSwiftPackageReference "BlueSocket" */;
+			productName = BlueSocketTestCommonLibrary;
+		};
+		E696A7332DF4B0340039B841 /* Socket */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E696A7302DF4B0340039B841 /* XCRemoteSwiftPackageReference "BlueSocket" */;
+			productName = Socket;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E696A6FB2DF487DF0039B841 /* Project object */;
+}
