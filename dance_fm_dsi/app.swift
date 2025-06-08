@@ -192,8 +192,6 @@ class AudioPlayerManager: NSObject, ObservableObject {
             let loadedRanges = currentItem.loadedTimeRanges
             if let firstRange = loadedRanges.first as? CMTimeRange {
                 let availableDuration = CMTimeGetSeconds(firstRange.duration)
-                print("Буфер: $availableDuration) сек")
-
                 let latency = availableDuration - currentTime
                 return latency
             }
@@ -341,8 +339,8 @@ public class RPC_connector {
             
             var presence = RichPresence()
             presence.type = 2
-            presence.state = self.api.state.name
-            presence.details = self.api.state.author
+            presence.state = self.api.state.author
+            presence.details = self.api.state.name
             presence.buttons = [RichPresence.Button(label: "The Beat Of Amsterdam", url: "https://dance.fm/")]
 
             

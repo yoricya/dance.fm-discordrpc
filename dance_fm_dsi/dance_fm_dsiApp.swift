@@ -71,7 +71,7 @@ struct PopoverView: View {
     
     var body: some View {
         VStack() {
-            Text(track_state.title).bold()
+            Text(track_state.title).bold().frame(maxWidth: .infinity, alignment: .leading)
             HStack() {
                 Button(track_state.is_playing ? "Pause" : "Play"){
                     track_app.play_pause()
