@@ -22,6 +22,7 @@
 		E696A72E2DF4AF530039B841 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E696A7252DF4AF530039B841 /* Utils.swift */; };
 		E696A7322DF4B0340039B841 /* BlueSocketTestCommonLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = E696A7312DF4B0340039B841 /* BlueSocketTestCommonLibrary */; };
 		E696A7342DF4B0340039B841 /* Socket in Frameworks */ = {isa = PBXBuildFile; productRef = E696A7332DF4B0340039B841 /* Socket */; };
+		E6A096BA2DF5C344000B988D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E6A096B92DF5C344000B988D /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		E696A7232DF4AF530039B841 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
 		E696A7242DF4AF530039B841 /* RPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPC.swift; sourceTree = "<group>"; };
 		E696A7252DF4AF530039B841 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		E6A096B92DF5C344000B988D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		E696A6FA2DF487DF0039B841 = {
 			isa = PBXGroup;
 			children = (
+				E6A096B92DF5C344000B988D /* README.md */,
 				E696A7052DF487DF0039B841 /* dance_fm_dsi */,
 				E696A7042DF487DF0039B841 /* Products */,
 			);
@@ -181,6 +184,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6A096BA2DF5C344000B988D /* README.md in Resources */,
 				E696A70E2DF487E10039B841 /* Preview Assets.xcassets in Resources */,
 				E696A70B2DF487E10039B841 /* Assets.xcassets in Resources */,
 			);

@@ -24,21 +24,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         print("setup popover..")
-        setupPopover()
+        
+        popover = NSPopover()
+        popover.contentSize = NSSize(width: 200, height: 150)
+        popover.behavior = .transient
+        
         
         print("init app..")
+
         if let app = new_app() {
-            popover.contentViewController = NSHostingController(rootView: PopoverView(track_state: app.state, track_app: app))
+            popover.contentViewController = NSHostingController(rootView: PopoverView(track_state: app.observe_state, track_app: app))
         } else {
             print("new_app() returned nilable state. Error occurred. App closed.")
             exit(1)
         }
         
+        
         print("setup menu item button..")
-        setup_menu_item()
-    }
-    
-    func setup_menu_item() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let button = statusItem.button {
@@ -46,17 +48,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image?.isTemplate = true
             button.action = #selector(togglePopover)
             button.target = self
-            return
+        } else {
+            print("cannot setup menu item button. App closed.")
+            exit(1)
         }
-        
-        print("cannot setup menu item button. App closed.")
-        exit(1)
-    }
-    
-    func setupPopover() {
-        popover = NSPopover()
-        popover.contentSize = NSSize(width: 200, height: 150)
-        popover.behavior = .transient
     }
     
     @objc func togglePopover() {
@@ -71,25 +66,35 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 struct PopoverView: View {
-    @ObservedObject var track_state: TrackState
+    @ObservedObject var track_state: ObservableStateData
     var track_app: TrackApp
     
     var body: some View {
         VStack() {
-            Text(track_state.title)
+            Text(track_state.title).bold()
             HStack() {
                 Button(track_state.is_playing ? "Pause" : "Play"){
                     track_app.play_pause()
                 }
-                Button("Reset"){
+                Button("Reset Stream"){
                     track_app.reset_state()
                 }
                 Button("RPC Reconnect"){
                     track_app.rpc?.reconnect()
                 }
                 Spacer()
+                Text("RPC State: "+track_app.observe_state.rpc_status)
             }
-        }.padding(12)
+            
+            if track_state.live_latency > 1 {
+                HStack() {
+                    Text("Not live. Click \"Reset Stream\" to go live")
+                    Spacer()
+                }
+                Spacer()
+            }
+            
+        }.padding(10)
         .frame(width: 460)
     }
 }

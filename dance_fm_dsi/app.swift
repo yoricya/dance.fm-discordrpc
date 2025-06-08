@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import MediaPlayer
 
 func new_app() -> TrackApp? {
     let app = TrackApp()
@@ -17,17 +18,26 @@ func new_app() -> TrackApp? {
     return app
 }
 
-class TrackState: ObservableObject {
-    @Published public var title = ""
-    @Published public var is_playing = false
+class TrackState {
     public var name = ""
     public var author = ""
+    
+    public var title = ""
+    public var is_playing = false
+}
+
+class ObservableStateData: ObservableObject  {
+    @Published public var title = ""
+    @Published public var is_playing = false
+    @Published public var live_latency = 0
+    @Published public var rpc_status = "Disconnected"
 }
 
 class TrackApp {
     public var state = TrackState()
+    public var observe_state = ObservableStateData()
+
     public var audio = AudioPlayerManager(url: "https://streams.dancefm.net/aac-hq")
-    
     public var rpc: RPC_connector?
     
     init() {
@@ -41,14 +51,15 @@ class TrackApp {
             while is_avail {
                 fetchTrackInfo()
                 print("refetching title..")
-                try await Task.sleep(nanoseconds: 5 * 1_000_000_000)
+                try await Task.sleep(nanoseconds: 8 * 1_000_000_000)
             }
         }
     }
     
     public func play_pause() {
         if !state.is_playing {
-            state.is_playing = true
+            self.set_playing_status(s: true)
+            
             start_title_update()
             audio.playStream()
         } else {
@@ -59,7 +70,31 @@ class TrackApp {
         print(state.is_playing)
     }
     
+    func set_playing_status(s: Bool) {
+        state.is_playing = s
+        
+        DispatchQueue.main.async {
+            self.audio.setPlayingStatus(isPlaying: s)
+            self.observe_state.is_playing = s
+        }
+    }
+    
+    func set_rpc_status(s: String) {
+        DispatchQueue.main.async {
+            self.observe_state.rpc_status = s
+        }
+    }
+    
     public func reset_state() {
+        state.title = ""
+        state.name = ""
+        state.author = ""
+        
+        DispatchQueue.main.async {
+            self.observe_state.title = ""
+            self.observe_state.live_latency = 0
+        }
+        
         audio.stopStream()
         audio.player = nil
     }
@@ -79,14 +114,23 @@ class TrackApp {
             if let responseString = String(data: data, encoding: .utf8){
                 if self.audio.app?.state.title != responseString {
                     print("new title: "+responseString)
+                    
                     DispatchQueue.main.async {
-                        self.audio.app?.state.title = responseString
+                        self.audio.app?.observe_state.title = responseString
                     }
+                    
+                    self.audio.app?.state.title = responseString
                     
                     let sep_title = responseString.components(separatedBy: " - ")
                     self.audio.app?.state.author = sep_title[0]
                     if sep_title.count > 1 {
                         self.audio.app?.state.name = sep_title[1]
+                    }
+                    
+                    if let app = self.audio.app {
+                        DispatchQueue.main.async {
+                            self.audio.updateNowPlaying(title: app.state.name, artist: app.state.author)
+                        }
                     }
                 }
                 
@@ -103,12 +147,13 @@ class TrackApp {
 
 class AudioPlayerManager: NSObject, ObservableObject {
     public var url: String
-
     var app: TrackApp?
     var player: AVPlayer?
-    
-    init(url: String){
+
+    init(url: String) {
         self.url = url
+        super.init()
+        setupNowPlaying()
     }
 
     func playStream() {
@@ -119,27 +164,94 @@ class AudioPlayerManager: NSObject, ObservableObject {
 
         if player == nil {
             player = AVPlayer(url: streamURL)
+                        
             player?.volume = 1.0
             player?.addObserver(self, forKeyPath: #keyPath(AVPlayer.rate), options: [.new], context: nil)
             player?.addObserver(self, forKeyPath: #keyPath(AVPlayer.status), options: [.new], context: nil)
         }
-
+        
+        // Check Live Latency
+        let lat = checkLatency()
+        if lat > 1 {
+            DispatchQueue.main.async {
+                self.app?.observe_state.live_latency = Int(lat)
+            }
+        }
+        
         player?.play()
-
         print("started playing.")
+    }
+    
+    func checkLatency() -> Double {
+        guard let player = player else { return -1 }
+
+        if let currentItem = player.currentItem {
+            let currentTime = currentItem.currentTime().seconds
+
+            // Загруженные диапазоны
+            let loadedRanges = currentItem.loadedTimeRanges
+            if let firstRange = loadedRanges.first as? CMTimeRange {
+                let availableDuration = CMTimeGetSeconds(firstRange.duration)
+                print("Буфер: $availableDuration) сек")
+
+                let latency = availableDuration - currentTime
+                return latency
+            }
+        }
+        
+        return -1
     }
 
     func stopStream() {
         player?.pause()
         print("stopped playing.")
     }
-    
+
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if self.player?.rate == 0 {
-            app?.state.is_playing = false
-            app?.is_avail = false
+            app?.set_playing_status(s: false)
         } else {
-            app?.state.is_playing = true
+            app?.set_playing_status(s: true)
+        }
+    }
+
+    private func setupNowPlaying() {
+        let commandCenter = MPRemoteCommandCenter.shared()
+
+        commandCenter.playCommand.addTarget { [unowned self] _ in
+            if !isPlaying() {
+                self.app?.play_pause()
+            }
+            return .success
+        }
+
+        commandCenter.pauseCommand.addTarget { [unowned self] _ in
+            if isPlaying() {
+                self.app?.play_pause()
+            }
+            return .success
+        }
+        
+    }
+
+    private func isPlaying() -> Bool {
+        return player?.rate != 0
+    }
+
+    func updateNowPlaying(title: String, artist: String) {
+        var info = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
+        
+        info[MPMediaItemPropertyTitle] = title
+        info[MPMediaItemPropertyArtist] = artist
+        
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+    }
+
+    func setPlayingStatus(isPlaying: Bool) {
+        if isPlaying {
+            MPNowPlayingInfoCenter.default().playbackState = .playing
+        } else {
+            MPNowPlayingInfoCenter.default().playbackState = .paused
         }
     }
 }
@@ -164,6 +276,7 @@ public class RPC_connector {
             self.reconnect_attempts = 0
             
             print("[Discord-Connector] RPC Connected")
+            self.api.set_rpc_status(s: "Connected")
             self.startUpdating()
         }
         
@@ -171,6 +284,7 @@ public class RPC_connector {
             self.is_gateway_connected = false
             
             self.stopUpdating()
+            self.api.set_rpc_status(s: "Disconnected")
             print("[Discord-Connector] RPC disconnected: \(String(describing: msg)) (\(String(describing: code)))")
         }
         
@@ -178,6 +292,7 @@ public class RPC_connector {
             self.is_gateway_connected = false
             
             self.stopUpdating()
+            self.api.set_rpc_status(s: "Error")
             print("[Discord-Connector] RPC error: \(String(describing: msg)) (\(String(describing: code)))")
         }
     }
@@ -185,6 +300,7 @@ public class RPC_connector {
     func reconnect() {
         self.old_track_hash = nil
         is_reconnecting_now = true
+        self.api.set_rpc_status(s: "Reconnect")
         rpc.disconnect()
         if !rpc.connect() && reconnect_attempts <= 4 {
             reconnect_attempts += 1
